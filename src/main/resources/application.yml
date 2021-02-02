@@ -71,3 +71,10 @@ feign:
   client:
     payment:
       url: http://payment:8080
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 610
