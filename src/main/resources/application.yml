@@ -45,6 +45,13 @@ feign:
 
 spring:
   profiles: docker
+  data:
+    mongodb:
+      url: my-mongodb-headless.mongodb.svc.cluster.local:27017
+      database: ${MONGODB_DATABASE}
+      username: ${MONGODB_USERNAME}
+      password: ${MONGODB_PASSWORD}
+      
   cloud:
     stream:
       kafka:
@@ -66,17 +73,11 @@ spring:
         event-out:
           destination: cafeteria
           contentType: application/json
-  datasource:
-    url: jdbc:mariadb://my-mariadb-mariadb-galera.mariadb.svc.cluster.local:3306/cafeteria
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: mariadb
-    password: mariadb 
   jpa:
-    open-in-view: false
-    generate-ddl: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
 
 feign:
   client:
