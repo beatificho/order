@@ -1,18 +1,21 @@
 package cafeteria;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
+import javax.persistence.Table;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import cafeteria.external.Payment;
 import cafeteria.external.PaymentService;
 
-@Document
+@Entity
+@Table(name="ORDER_MANAGEMENT")
 public class Order {
 
     @Id

@@ -16,22 +16,6 @@ spec:
     spec:
       containers:
       - name: order
-        env:
-        - name: MONGODB_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              name: mongodb
-              key: database
-        - name: MONGODB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: mongodb
-              key: username
-        - name: MONGODB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mongodb
-              key: password
         image: beatific/order:v3
         ports:
         - containerPort: 8080
